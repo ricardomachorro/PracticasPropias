@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="div">
+      <h1>{{message}}</h1>
+      <hr/>
+      <!--Aqui hay un ejemplo del uso de componentes-->
+      <posts></posts>
+      <hr/>
+      <posting inline-template>
+        <h1 @click='display'>Helosss</h1>
+      </posting>
+      <hr/>
+      <!--Para pasar datos desde el exterior de un elemento al interior se usa data bind y poner el dato a cambiar
+        para esto se hace asi: ' <componente v-bind:parametro="valor_parametro">  '  o
+        ' <componente :parametro="valor_parametro">  '-->
+      <componente :data="34"></componente>
+
+      <Lista><Lista>
+    </div>
+  </body>
+  <script>
+
+     /*En Vue.js al igual  que otros frameworks se puede crear elementos u componentes
+     que son elementos precargados para ser puestos en cualquier lugar del html con etiquetas
+     parecidas con html, y este se hace:
+      ' Vue.component("nombre_componente/etiqueta",{
+         template: "Estrucutra"
+       })  '    */
+     Vue.component('posts',{
+       template:'<h1>Hello</h1>'
+     });
+
+   /*Tambien se ueden usr los elementos en Vue para poder hacer funciones */
+     Vue.component('posting',{
+        data(){
+            return{
+
+            }
+        },methods:{
+
+          display(){
+            console.log("hello");
+          }
+        }
+     });
+
+     Vue.component('componente',{
+       props:["data"],
+       template:
+          '<h1 @click="display">{{data}}</h1>'
+
+       ,data(){
+          return{
+
+                message:'Hello Rick'
+
+          }
+       },methods:{
+         display(){
+           console.log("hello");
+         }
+       }
+     });
+
+     Vue.component('Lista',{
+
+       template:
+          '<div> <ul><ElementoLista v-for="post in posts" :key="post.id">{{post.title}}</ElementoLista></ul></div>'
+
+       ,data(){
+          return{
+
+                posts:[
+                  {id:1,title:"Post-1"},
+                  {id:2,title:"Post-2"},
+                  {id:3,title:"Post-3"},
+                  {id:4,title:"Post-4"}
+
+                ]
+
+          }
+       },methods:{
+         display(){
+           console.log("hello");
+         }
+       }
+     });
+
+    Vue.component('ElementoLista',{
+      template:
+      /*En Vue.js las etiquetas ' <slot></slot>  indica que la informacion que se le sea pasada al elemento
+       sera posicionada en donde esten las etiquetasademas de indicar que esa informacion vienen del elemento de
+       las etiquetas <slot><slot> '*/
+      ' <li><slot></slot></li>'
+      ,
+      data(){
+        return{
+
+        }
+      },methods:{
+
+      }
+    });
+
+     let vue=new Vue({
+       el:"#div",
+       data:{
+         message:"mensaje"
+       }
+     })
+  </script>
+</html>

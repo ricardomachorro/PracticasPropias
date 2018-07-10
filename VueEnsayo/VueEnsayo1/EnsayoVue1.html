@@ -1,0 +1,60 @@
+<html>
+   <head>
+     <title>EnsayoVue1</title>
+     <!--Para el uso de vuejs  se puede usar un cdn como el siguiente -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+      integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+   </head>
+   <body>
+       <div class="container" id="app">
+         <h1>{{message}}</h1><!--Los valores del objeto vue pueden ser remplazado or medio de string interpolation-->
+         <h1>{{number +10}}</h1><!--Vue tambien permite hacer operaciones logicas y matematicas-->
+         <h1>{{isActive ? 'isActive': "is not Active" }}</h1>
+         <!--Para atributos de elementos html  se usa el data bindig que puede ser representado asi:
+          '<elemento_html  v-bind:atributo="parametros_atributo">contenido</elemento_html> ' o tmabien uede ser:
+          '<elemento_html:atributo="parametros_atributo">contenido</elemento_html> '-->
+         <a v-bind:href="url">url</a><br>
+         <a :href="url">url</a><br>
+         <h1 class="btn btn-primary" :data="dinamycID">{{dinamycID}}</h1>
+           <div class="row">
+             <div class="col-6">
+               <form action="">
+                  <div class="col-6">
+                    <!--Vue js tmabien puede hacer que cambien los parametros del objeto Vue y ligarlo a dos elementos
+                   del documento html esto por medio de 'v-model' -->
+                    <!--En este caso se une el parametro message del objeto Vue a  el input de abajo y con el 'v-model',lo
+                   que hace que lo del input cmabie el parametro message y  a su vez cambien todos los elemtos relacionados con el
+                 parametro -->
+                     <input v-model="message" type="text" class="form-control">
+                     <br><br>
+                     {{message}}
+                  </div>
+               </form>
+             </div>
+          </div>
+       </div>
+   </body>
+   <script>
+        /*Para ligar un elemento html a vue se tiene que primero hacer un objeto vue de la siguiente forma:
+         '  new Vue({
+          el:"Elemento_a_ligar, " Nota: Los selectores que unen el vue y elemento html son parecidos en class
+          data:{
+          informacion_del_objeto
+        }
+       })'
+        */
+      let vue =new Vue({
+          el:"#app", /*Este es el selector de elementos*/
+          data:{
+            /*En la info de un objeto vue uede haber diferentes tipos de informacion como :Strings,Integer,o booleanos*/
+            message:"Hello",
+            number:20,
+            isActive:false,
+            dinamycID:30,
+            url:"https://vuejs.org/v2/guide/"
+          }
+        })
+
+   </script>
+</html>

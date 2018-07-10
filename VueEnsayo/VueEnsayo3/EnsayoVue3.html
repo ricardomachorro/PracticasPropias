@@ -1,0 +1,147 @@
+<html>
+  <head>
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <style>
+       .active{
+         color:green;
+       }
+
+       .notActive{
+         color:red;
+       }
+  </style>
+  <body>
+       <div id="app" class="container">
+         <a v-bind:href="url">{{url}}<a>
+          <!-- en Vue.js ' v-onclick' sirve para responder a eventos dentro del DOM  y el escrito html, su estructura es:
+          ' v-onclick="acciones"' , tambien se puede usar en vez de ' v-onclick' ,' @'   -->
+        <h1 v-on:click="number++">suma<h1>
+        <h1 @click="number--">resta</h1>
+        <h1 class="notActive">{{number}}</h1>
+
+      </br></br>
+      </hr>
+
+      <!--'.prevent' permite  que despues de un evento se haga una accion en especifico -->
+      <form action=""  @submit.prevent="number++">
+          <button type="submit">submit</button>
+      </form>
+    </br></br>
+    </hr>
+    <!--para pasar elementos css se usa ' v-bind:style="parametros" ' o ':style="parametros"' los parametros se ponen
+  entre parantesis,asi '{paramtros}', para usar elementos de objetos Vue.js se pone sin comas y en caso de parametros como pixeles
+   u otros s eune al objeto comonuna concatenacion de Strings-->
+    <a v-bind:style="{color:'red',fontSize:fontSize+'px'}">font</a></br>
+    <a v-bind:style="styleObject">font</a>
+    <!--Para poder pasar objetos del Objeto vue se usa el siguiente formato:
+        ' v-bind:style="[Objeto1,Objeto2,ObjetoN]"' -->
+    <a v-bind:style="[styleObject,styleObject2]">font</a>
+    <!--Se puede tambien incrementar clases con '  v-bind:class="{clases}"  ' o ':class="{clases}' , esto no quita las clases
+    que ya se habian puesto -->
+    <h1 class="static" :class="{active:isActive,'notActive':!isActive}">{{name}}</h1>
+    <!--Esta es tambien una forma de usarlo-->
+    <h1 :class="[isActive ? 'active' : 'notActive']"></h1>
+     </br></br></hr>
+     <!--Para usar funciones solo se necesita poner el evento que lo va a activar y poner el nombre de la funcion
+    ejemplo de esto es: ' @click="sayHi" '-->
+
+     <button @click="sayHi">Say Hi</button></br>
+     <button @click="increaseDoes">increaseDoes</button></br>
+     <button  @click="increaseFont">Increase Font</button></br>
+     <button @click="DecreaseFont">DecreaseDoes</button><br>
+
+     <!--Tambien vue puede hacer condicionales para poder elegir que elementos usar esto usando
+       'v-if="condicional"' y 'v-else' o su union que seria  '  v-else-if="condicional"'-->
+     <h1 v-if="NameisActive">{{name}}</h1>
+     <h1 v-else-if="name==='Edwin'">Hey Edwin</h1>
+     <h1 v-else>No hay Usuarios</h2>
+
+     </br></br></hr>
+            <ul>
+              <!--Vue.js tambien permite usar operaciones de control como for, para poder ser usadas se
+            usa ' v-for=" parametros" ', con ' v-for ' los paramtros deben tener una estructura de
+            v-for="nombre_de_los_objetos_con_los_que_trabaja_vue in nombre_de_la_lista_de_objetos" -->
+              <li v-for="post in posts" :key="post.id">{{post.title}}-{{post.body}}</li>
+              <!--El psarmetro ' :key  ' es para que vue tenga un identificador para los elementos-->
+            </ul>
+       </br></br></hr>
+       <!--Esto e sun ejemplo de computed properties-->
+          <h1>{{reverseMessage}}</h1>
+        </br></br></hr>
+          <h1>{{estaActivo==="Activo" ? "Activo" : "No Activo"}}</h1>
+      </div>
+ </body>
+ <script>
+      let vue=new Vue({
+         el:"#app",
+         data:{
+           name:"Edwin",
+           isActive:true,
+           hasError:true,
+           message:"Hello",
+           url:"https://www.saes.cecyt9.ipn.mx/",
+           number:10,
+           fontSize:30,
+           styleObject:{
+             color:'blue',
+             fontSize:'40px'
+           },
+           styleObject2:{
+             color:'yellow',
+             fontSize:'20px'
+           },
+           NameisActive:false,
+           /* Este es un arreglo de objetos que pueden ser usados despues en un for*/
+           posts:[
+             {id:1,title:"post 1",body:"ddsdfsdfdsff"},
+             {id:2,title:"post 2",body:"ddsdfsdfdsff"},
+             {id:3,title:"post 3",body:"ddsdfsdfdsff"},
+             {id:4,title:"post 4",body:"ddsdfsdfdsff"}
+           ],
+           estaActivo:"Activo"
+         },
+         /*Un objeto Vue tambien puede tener metodos para hacer otras cosas*/
+         methods:{
+             sayHi:function(){
+               console.log("Hi");
+             },
+             /*Esta es una forma mas moderna de hacer funcion*/
+             increaseDoes(){
+               console.log("Hi");
+             },
+             increaseFont(){
+               /*Cuando se usa ' this ' se refiere al objeto Vue.js*/
+               this.fontSize++;
+             },
+             DecreaseFont(){
+               this.fontSize--;
+             }
+
+         },
+         computed:{
+            /*Tambien se puede regrasar valores con funcioenes*/
+            reverseMessage(){
+              return this.message.split('').reverse('').join('');
+            }
+         },
+         /*Em Vue.js se puede vigilar si un atributo cambia, esto con watchers para estos se usa,
+         ' watch:{ watchers} ' , la estrucutra de un watcher es :
+
+         ' nombre_variable_o_propiedad_a_vigilar: function(){
+            acciones_a_realizar
+       } '
+
+        */
+         watch:{
+           estaActivo:function(newValue){
+             /*Dentro de un wathcer incluso se puede poner una variable que en este caso es el nuevo valor
+             del parametro a revisar*/
+             console.log("send an email -" + newValue);
+
+           }
+         }
+      })
+ </script>
+</html>
