@@ -33,7 +33,7 @@ unsigned int a1 = 29; /* 29 = 0001 1101   <====Nota: Es unsigned para asi evitar
 unsigned int b1 = 48; /* 48 = 0011 0000 */
  int c1 = 0;
 
-/**/
+
 
  c1 = a1 & b1;/* 32 = 0001 0000 */
  printf("%d & %d = %d\n", a1, b1, c1 );
@@ -48,15 +48,24 @@ unsigned int b1 = 48; /* 48 = 0011 0000 */
  c1 = a1 >> 2; /* 7 = 0000 0111 */
  printf("%d >> 2 = %d\n", a1, c1 );
 
+
  /*Otra forma de poder el ' printf() ' es con secuencias de escape de la siguiente forma:
+  \a <=====  caracter de alarma (Es decir que este hace sonido)
+  \b <====   caracter de retroceso
+  \f <====   caracter de avance de hoja
+  \t <==== caracter de tabular horizontal
+  \v <==== caracter de tabular vertical
+  \\<===== caracter para digonal invertida
+  \?<===== carcater para  signo interrogacion
+  */
 
- \a <=====  caracter de alarma (Es decir que este hace sonido)
- \b <====   caracter de retroceso
- \f <====   caracter de avance de hoja
- \t <==== caracer de tabular horizontal
- */
-
- printf("\a Hola \n");//<===Hace sonido
+  printf("\a Hola \n");/*<===Hace sonido*/
+  printf("\b Hola \n");/*<===Hace un retroceso*/
+  printf("\f Hola \n");/*<===Hace un avance de hoja*/
+  printf("\t Hola \n");/*<===Hace un tabular horizontal*/
+  printf("\v Hola \n");/*<===Hace un tabular vertical*/
+  printf("\\ Hola \n"); /*<===== Hac eun digonal invertida*/
+  printf("\? Hola \n"); /*<===== Hac eun digonal invertida*/
 
 
 return 0;
