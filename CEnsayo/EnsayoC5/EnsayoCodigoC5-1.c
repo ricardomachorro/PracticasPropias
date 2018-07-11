@@ -51,10 +51,13 @@ unsigned int b1 = 48; /* 48 = 0011 0000 */
  /*Otra forma de poder el ' printf() ' es con secuencias de escape de la siguiente forma:
 
  \a <=====  caracter de alarma (Es decir que este hace sonido)
-
+ \b <====   caracter de retroceso
+ \f <====   caracter de avance de hoja
+ \t <==== caracer de tabular horizontal
  */
 
- printf("\a Hola");
+ printf("\a Hola \n");//<===Hace sonido
 
 
+return 0;
 }
