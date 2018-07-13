@@ -22,4 +22,4 @@ var temperaturaActual=(temperatura==100) ? temperatura-20:temperatura-10;
 
 document.write(" La temperatura normal es: "+ temperatura + "<br/>");
 
-document.write("La temperaturaActual es: "+ temperaturaActual +"<br/>")
+document.write("La temperaturaActual es: "+ temperaturaActual +"<br/>");
