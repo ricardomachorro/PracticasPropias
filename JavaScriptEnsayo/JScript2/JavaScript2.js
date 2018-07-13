@@ -103,13 +103,14 @@ document.write("Incrementos:" +b);
 
 /* Operadores de asignacion
 
- Operador:
+ Operador:      Equivalente
 
- @ =
- @ +=
- @ -=
- @ *=
- @
+ @ =            x=y;
+ @ +=           x=x+y;
+ @ -=           x=x-y;
+ @ *=           x=x*y;
+ @ /=           x=x/y;
+ @ %=           x=x%y;
 
 
 
