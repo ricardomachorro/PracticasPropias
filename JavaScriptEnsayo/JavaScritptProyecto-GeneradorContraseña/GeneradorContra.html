@@ -1,0 +1,85 @@
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!--Este es un enlace de la font o fuente de Roboto desde Google fonts
+       " https://fonts.google.com/  "
+    -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+      <link href="css/GeneradorContraStyle.css" rel="stylesheet">
+      <link href="fontawesome/css/all.min.css" rel="stylesheet">
+      <title>Generador de Contraseña</title>
+  </head>
+  <body>
+
+   <!--Se usa una estructura parecida a Boostrap
+      esto con la etructura de un div contenedor
+ -->
+    <div class="contenedor">
+      <div class="logo">
+         <img src="img/logo.png" style="width:10px;height:10px" alt="logo">
+      </div>
+      <form  action="" class="app" id="app">
+        <!--Se usa tambien la estructura de filas y columnas-->
+         <div class="fila numero-caracteres">
+           <div class="col">
+              <label for="numero-caracteres">Numero de Caracteres</label>
+           </div>
+           <div class="col">
+             <div>
+              <button class="btn" id="btn-menos-uno"><i class="fas fa-minus"></i></button>
+            </div>
+            <div>
+              <input type="text" id="numero-caracteres" readonly value="12">
+            </div>
+            <div>
+              <button class="btn" id="btn-menos-uno"><i class="fas fa-plus"></i></button>
+            </div>
+           </div>
+         </div>
+         <div class="fila simbolos">
+           <div class="col">
+             <label for="simbolos">¿Incluir Simbolos?</label>
+           </div>
+           <div class="col">
+             <button class="btn" id="btn-simbolos"><i class="fas fa-check"></i></button>
+          </div>
+         </div>
+         <div class="fila numeros">
+           <div class=col>
+               <label for="numeros">¿Incluir Numeros?</label>
+           </div>
+           <div class="col">
+             <button class="btn" id="btn-numeros"><i class="fas fa-check"></i></button>
+          </div>
+         </div>
+         <div class="fila mayusculas">
+           <div class="col">
+               <label for="mayusculas">¿Incluir Mayusculas?</label>
+           </div>
+           <div class="col">
+             <button class="btn" id="btn-mayusculas"><i class="fas fa-check"></i></button>
+           </div>
+         </div>
+         <div class="fila generar">
+           <div class="col">
+              <button class="btn btn-generar" id="btn-generar">Generar<i class="fas fa-lock"></i></button>
+           </div>
+           <div class="col">
+              <input type="text" class="input-password" id="input-password" readonly>
+           </div>
+         </div>
+         <div class="fila alerta">
+           <div class="col">
+               <div class="alerta-copiado">
+                 <p><i class="fas fa-copy"></i>Texto Copiado</p>
+               </div>
+           </div>
+         </div>
+      </form>
+    </div>
+    <script src="js/GeneradorContraFun.js"></script>
+
+  </body>
+</html>
