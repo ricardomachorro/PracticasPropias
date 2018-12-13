@@ -59,3 +59,14 @@ print(g)
 print(type(g))
 print(9>2)
 print(9>11)
+
+#Tambien se puede transformar loss tipos de datos a los que pertenece
+#esto solo con poner el tipo de dato a transformar antes de la asignacion
+
+h = int(x)
+print(h)
+print(type(h))
+
+i = float("22.4")
+print(i)
+print(type(i))
