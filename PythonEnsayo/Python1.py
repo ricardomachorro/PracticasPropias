@@ -29,3 +29,33 @@ print(type(a))
 
 x = 23.56
 y = 12.4
+z = 31.0
+
+print(x,y,z)
+print(type(x))
+
+#Tambien se puede representar valores numericos en otros sistemas por ejemplo
+
+#Binario:en Binario se tiene que poner antes del dato a asignar 0B
+
+d = 0B1010
+print(d)
+print(type(d))
+
+#Hexadecimal:en Binario se tiene que poner antes del dato a asignar 0X
+
+e = 0XFF
+print(e)
+print(type(e))
+
+#Complex:Para los datos complejos se pone al final de estos una " j " para indicar que son complejos
+f = 3+5j
+print(f)
+print(type(f))
+
+#Otro tipo de datos son los booleanos, los valores pueden ser: True o False
+g = True
+print(g)
+print(type(g))
+print(9>2)
+print(9>11)
