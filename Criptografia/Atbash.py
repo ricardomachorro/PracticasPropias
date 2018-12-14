@@ -1,9 +1,15 @@
 #Cifrado atbash
 import pyperclip
 #Alfabetos empleados
-CLARO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-CIFRADO = "ZYXWUVTSRQPONMLKJIHGFEDCBA"
+CLARO = 'abcdefghijklmnopqrstuvwxyz '
+CIFRADO = 'ZYXWUVTSRQPONMLKJIHGFEDCBA '
 
 salida = ''
+texto = input('Introduce el texto:')
+for simbolo in texto.lower():
+    if simbolo in CLARO:
+        indice = CLARO.index(simbolo)
+        salida += CIFRADO[indice]
 
-texto = input("Introduce el texto") 
+print(salida)
+pyperclip.copy(salida)
