@@ -4,6 +4,10 @@
 #Para declarar una lista se pone despues d ela asignacion y el nombre los simbolos
 # " [] " y  despues se le pone el contenido
 
+#Nota: Si una lista solo contiene un elemento para diferecir este de un string o
+#un integer, se pone despues de este elemento una coma " ,"
+
+
 #un ejemplo de esto es:
 list=[12,12,30,"Hola",13.4,127,1]
 print(list)
