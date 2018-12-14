@@ -20,7 +20,7 @@ print(tupla*4)
 print(tupla.count(12))
 #tambien se puede ver ele indice de un elemento con la funcion index
 print(tupla.index("Rick"))
-#tambien se puede pasra una lista a una tupla
+#tambien se puede pasra una lista a una tupla con la funcion " tuple  "
 list=[12,34,"rick",14,456]
 print(type(list))
 tupla2=tuple(list)
