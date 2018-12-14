@@ -1,0 +1,11 @@
+/*
+  Una forma de asignacion de cambios a los elementos css se puede usar
+  id con #, clases con ., u elementos ya establecidos
+
+*/
+
+/*ejempo de elemento ya establecido*/
+p{
+   font-size: 18px;
+   color:blue;
+}
