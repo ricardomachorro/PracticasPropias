@@ -15,4 +15,10 @@ print(type(set1))
 #ejemplo:
 
 set1.update([55,2,3])
+print(set1)
+
+#para eliminar elementos se usa el metodo " remove "
+#ejemplo:
+
+set1.remove(34)
 print(set1) 
