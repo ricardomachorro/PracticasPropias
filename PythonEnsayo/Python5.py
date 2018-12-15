@@ -21,4 +21,10 @@ print(set1)
 #ejemplo:
 
 set1.remove(34)
-print(set1) 
+print(set1)
+
+#Otra cosa que se  puede usar es convertir los set en frozenset , que es un set sin capacidad de
+#ser modificado
+
+set2 = frozenset(set1)
+print(type(set2))
