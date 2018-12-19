@@ -1,5 +1,5 @@
 #Una coleccion de datos que permite python es el de los "  set " , el cual
-# a diferencia de las listas no permite repetociones, pero a diferencias
+# a diferencia de las listas no permite repeticiones, pero a diferencias
 #de las tuplas permite modificacion
 
 #Para declarar los set set se hace con corchetes " { contenido }" despues de la declaracion
