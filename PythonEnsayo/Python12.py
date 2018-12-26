@@ -1,4 +1,4 @@
-#En python se puede usar fechas con el uso de fehcas exactas
+#En python se puede usar fechas con el uso de fechas exactas
 #por medio de imprtar el modulo datetime
 
 import datetime #importacion modulo datetime
