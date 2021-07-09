@@ -37,15 +37,23 @@ public class Servidor {
         while(true){
         
           sc=servidor.accept();//Método que espera una petición dle cliente
-          //Stream de datos que recibe el servidor del socket del cliente
+          
+          System.out.println("Cliente conectado");
+         //Stream de datos que recibe el servidor del socket del cliente
           in=new DataInputStream(sc.getInputStream());
           //Stream de datos que sca el servidor al socket dle cliente
           out=new DataOutputStream(sc.getOutputStream());
           
           
           String mensaje=in.readUTF();
+          System.out.println(mensaje);
           
+          out.writeUTF("Hola mundo desde el servidor");
+        
+          sc.close();
+          System.out.println("Cliente desconectado");
         }
+        
         
         
         
