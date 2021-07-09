@@ -1,3 +1,9 @@
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -31,8 +37,24 @@ public class Cliente {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    
-    
+        final String HOST="127.0.0.1";//Direccion local
+        final int PUERTO=5000;
+        DataInputStream in;
+        DataOutputStream out;
+        
+        
+       try{ 
+        Socket sc=new Socket(HOST,PUERTO);
+       in=new DataInputStream(sc.getInputStream());
+       out=new DataOutputStream(sc.getOutputStream());
+       out.writeUTF("!Hola mundo desde el cliente");
+       String mensaje=in.readUTF();
+       System.out.println(mensaje);
+       sc.close();
+       
+       }catch(Exception ex){
+       System.out.println(ex.toString());
+       }
     }
     
 }
