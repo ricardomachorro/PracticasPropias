@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package socketstcp;
 
 /**
  *
  * @author Ricardo Alberto
  */
-public class SocketsTCP {
+public class Cliente {
 
     /**
      * @param args the command line arguments
