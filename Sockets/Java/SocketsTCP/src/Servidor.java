@@ -32,7 +32,7 @@ public class Servidor {
 
         try{ 
         servidor=new ServerSocket(PUERTO); //Creacion de elemento de servidor del socketr
-        System.out.println("Servidro iniciado");
+        System.out.println("Servidor iniciado");
         
         while(true){
         
@@ -52,8 +52,9 @@ public class Servidor {
         
           sc.close();
           System.out.println("Cliente desconectado");
+          break;
         }
-        
+        servidor.close();
         
         
         
