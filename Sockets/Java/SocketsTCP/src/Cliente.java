@@ -8,6 +8,22 @@
  *
  * @author Ricardo Alberto
  */
+
+
+
+/*
+
+Clase ejemplo inicio de conexion con sockets de flujo
+
+
+Son un servicio orientado a la conexión, donde los datos se
+transfieren sin encuadrarlos en registros o bloques
+
+Si se rompe la conexión entre los procesos , estos 
+seran informados de tal suceso para que tomen las medidas
+oportunas
+
+*/
 public class Cliente {
 
     /**
