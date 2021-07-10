@@ -61,7 +61,7 @@ public class Servidor {
            DatagramPacket respuesta=new DatagramPacket(buffer,buffer.length,direccion,puertoCliente);
             System.out.println("Enviando la información del cliente");
            socketUDP.send(respuesta);
-           
+           socketUDP.close();
            
            
         }catch(IOException ex){
