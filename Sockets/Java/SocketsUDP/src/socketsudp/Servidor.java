@@ -43,10 +43,12 @@ public class Servidor {
         final int PUERTO=5000;
         byte[] buffer=new byte[1024]; //Buffer para el datagrama
         try{
+            //Un socket de datagrama es el
+            //del servidor si tiene el puerto
            DatagramSocket socketUDP=new DatagramSocket(PUERTO);
            DatagramPacket peticion=new DatagramPacket(buffer,buffer.length);//Paquete de datagramas a enviar
            socketUDP.receive(peticion);
-            System.out.println("Recibe la infromación del cleinte");
+            System.out.println("Recibe la infromación del cliente");
            String mensaje=new String(peticion.getData());
            System.out.println(mensaje);
            
