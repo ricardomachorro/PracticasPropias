@@ -5,17 +5,47 @@
  */
 package ejerciciochatobservables;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.Socket;
+
 /**
  *
  * @author Ricardo Alberto
  */
-public class Cliente {
+public class Cliente implements Runnable{
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    
+    private int puerto;
+    private String mensaje;
+    
+    public Cliente(int puerto,String mensaje){
+      this.puerto=puerto;
+      this.mensaje=mensaje;
+    }
+    
+    @Override
+    public void run() {
+        
+        final String HOST="127.0.0.1";//Direccion local
+        final int PUERTO=5000;
+       
+        DataOutputStream out;
+        try{
+        Socket sc=new Socket(HOST,PUERTO);
+       
+        out=new DataOutputStream(sc.getOutputStream());
+         out.writeUTF(mensaje);
+      
+       sc.close();
+        
+        }catch(Exception ex){
+        
+        }
+        
     }
     
 }
