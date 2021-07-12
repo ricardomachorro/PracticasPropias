@@ -5,17 +5,27 @@
  */
 package ejerciciochatobservables;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  *
  * @author Ricardo Alberto
  */
-public class Frm1 extends javax.swing.JFrame {
+public class Frm1 extends javax.swing.JFrame implements Observer{
 
     /**
      * Creates new form Frm1
      */
     public Frm1() {
         initComponents();
+        this.getRootPane().setDefaultButton(this.jButton1);
+        Servidor s=new Servidor(5000);
+        s.addObserver(this);
+        Thread t=new Thread(s);
+        t.start();
+        
+        
     }
 
     /**
@@ -74,6 +84,12 @@ public class Frm1 extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent ev){
+    
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -113,4 +129,11 @@ public class Frm1 extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+   
+        
+        
+    }
 }
