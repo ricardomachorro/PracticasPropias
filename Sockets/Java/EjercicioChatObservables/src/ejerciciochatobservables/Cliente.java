@@ -31,11 +31,11 @@ public class Cliente implements Runnable{
     public void run() {
         
         final String HOST="127.0.0.1";//Direccion local
-        final int PUERTO=5000;
+        
        
         DataOutputStream out;
         try{
-        Socket sc=new Socket(HOST,PUERTO);
+        Socket sc=new Socket(HOST,puerto);
        
         out=new DataOutputStream(sc.getOutputStream());
          out.writeUTF(mensaje);

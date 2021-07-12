@@ -35,7 +35,7 @@ public class Servidor extends Observable implements Runnable {
         Socket sc = null;
         
         DataInputStream in = null;
-        DataOutputStream out = null;
+        
 
         try {
             servidor = new ServerSocket(puerto);
@@ -54,10 +54,14 @@ public class Servidor extends Observable implements Runnable {
                 
                 sc.close();
                 System.out.println("Cliente desconectado");
-                break;
+                //break;
+               /* if(mensaje=="salir"){
+                 servidor.close();
+                 break;
+                }*/
 
             }
-            servidor.close();
+            
 
         } catch (Exception ex) {
 

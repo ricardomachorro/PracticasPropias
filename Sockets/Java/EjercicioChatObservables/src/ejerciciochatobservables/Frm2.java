@@ -5,6 +5,8 @@
  */
 package ejerciciochatobservables;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -12,18 +14,25 @@ import java.util.Observer;
  *
  * @author Ricardo Alberto
  */
-public class Frm2 extends javax.swing.JFrame implements Observer {
+public class Frm2 extends javax.swing.JFrame implements Observer{
 
     /**
      * Creates new form Frm2
      */
     public Frm2() {
         initComponents();
-        this.getRootPane().setDefaultButton(btnEnviar);
+        this.getRootPane().setDefaultButton(this.btnEnviar);
+        btnEnviar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                btnEnviarActionPerformed(arg0);
+            }
+        });
         Servidor s=new Servidor(6000);
         s.addObserver(this);
         Thread t=new Thread(s);
         t.start();
+    
     }
 
     /**
@@ -41,15 +50,9 @@ public class Frm2 extends javax.swing.JFrame implements Observer {
         txtTexto = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Frm2");
 
         btnEnviar.setText("Enviar");
-        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviarActionPerformed(evt);
-            }
-        });
-
-        txtTextoEnviar.setText("jTextField1");
 
         txtTexto.setColumns(20);
         txtTexto.setRows(5);
@@ -59,46 +62,43 @@ public class Frm2 extends javax.swing.JFrame implements Observer {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtTextoEnviar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(txtTextoEnviar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtTextoEnviar)
-                    .addComponent(btnEnviar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtTextoEnviar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-         String mensaje="2:"+this.txtTextoEnviar.getText()+"\n";
-        this.txtTexto.append(mensaje);
-        
-        Cliente c=new Cliente(5000,mensaje);
-        Thread t=new Thread(c);
-        t.start();
-    }//GEN-LAST:event_btnEnviarActionPerformed
-
     /**
      * @param args the command line arguments
      */
-
-
-
+    
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt){
+    
+        String mensaje="2:"+this.txtTextoEnviar.getText()+"\n";
+        this.txtTexto.append(mensaje);
+        Cliente c=new Cliente(5000,mensaje);
+        Thread t=new Thread(c);
+        t.start();
+        
+        
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -130,9 +130,6 @@ public class Frm2 extends javax.swing.JFrame implements Observer {
             }
         });
     }
-    
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
@@ -143,6 +140,8 @@ public class Frm2 extends javax.swing.JFrame implements Observer {
 
     @Override
     public void update(Observable arg0, Object arg1) {
+        
         this.txtTexto.append((String) arg1);
+        
     }
 }
