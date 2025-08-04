@@ -1,0 +1,120 @@
+body{
+    background-color: #e4f0e4;
+}
+
+.mainContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+}
+
+.navBar{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: #1bb3a8;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 70px;
+}
+
+.logoNavBar{
+    width: 120px;
+
+}
+
+.navBar .navBarOptions{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0px 40px;
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    color: #ffff;
+    align-items: flex-end;
+}
+
+
+.homeContainer, .actionsContainer, .fundingContainer, .valuesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.cards{
+    background-color: white;
+    box-shadow: 0 3px 30px 0 #aaa;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding: 80px;
+    gap:20px;
+    margin: 80px;
+}
+
+.cardLetters{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.cardLetters h2{
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cardLetters a{
+    font-size: 30px;
+    font-weight:200;
+}
+
+.cardsImage{
+    width: 400px;
+    height: 400px;
+}
+
+.expositionMessage{
+    display: flex;
+    flex-direction: row;
+    background-color: #1bb3a8 ;
+    align-items: center;
+    align-content: space-around;
+    margin: 20px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.expositionMessageImage{
+    width: 400px;
+    height: 400px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.expositionMessageLetters{
+    display: flex;
+    flex-direction: column;
+    align-items:start
+}
+
+.expositionMessageLetters h2{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #ffff;
+}
+
+.expositionMessageLetters a{
+   color:#1f5746;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 30px;
+   font-weight: bold;
+
+}
