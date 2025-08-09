@@ -1,1 +1,1 @@
-Explicacion código
+Explicacion código de ViewModel
