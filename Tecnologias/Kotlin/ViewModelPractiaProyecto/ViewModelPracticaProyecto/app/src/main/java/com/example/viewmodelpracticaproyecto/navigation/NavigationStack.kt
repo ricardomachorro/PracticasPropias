@@ -27,6 +27,10 @@ fun Navigation_Stack(){
           composable(route= Screen.LiveDataViewModel.route){
               LiveDataView(navController)
           }
+
+          composable(route= Screen.SavedStateHandlerViewModel_Screen.route){
+              SavedStateHandlerView(navController)
+          }
       }
 
 }

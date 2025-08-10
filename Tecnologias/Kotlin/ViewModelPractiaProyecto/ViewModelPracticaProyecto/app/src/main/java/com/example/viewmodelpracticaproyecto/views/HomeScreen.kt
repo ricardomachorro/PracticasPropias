@@ -46,6 +46,14 @@ fun HomeScreen(navController: NavController) {
                 Text("ViewModel Without LiveData")
             }
 
+            Button(
+                onClick = {
+                    navController.navigate(Screen.SavedStateHandlerViewModel_Screen.route)
+                }
+            ){
+                Text("ViewModel with SaveStateHanfler")
+            }
+
         }
     }
 
