@@ -25,16 +25,25 @@ fun HomeScreen(navController: NavController) {
     Box(
         modifier =  Modifier.fillMaxSize()
     ){
-        Row(
+        Column(
             modifier = Modifier.fillMaxSize(),
-            verticalAlignment = Alignment.CenterVertically,
+            verticalArrangement = Arrangement.SpaceAround,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(
                 onClick = {
-                    navController.navigate(Screen.ViewModelWithoutParameters.route)
+                    navController.navigate(Screen.StateViewModel.route)
                 }
             ){
-                 Text("ViewModel Without Parameters")
+                 Text("ViewModel Without State")
+            }
+
+            Button(
+                onClick = {
+                    navController.navigate(Screen.LiveDataViewModel.route)
+                }
+            ){
+                Text("ViewModel Without LiveData")
             }
 
         }

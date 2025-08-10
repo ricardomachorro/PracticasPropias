@@ -12,34 +12,31 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.viewmodelpracticaproyecto.navigation.Screen
+import com.example.viewmodelpracticaproyecto.viewModels.LiveDataViemodel
 
 
 @Composable
-fun ViewModelWithoutParameters(navController: NavController){
-    Contador()
-}
-
-
-@Composable
-fun Contador(){
+fun LiveDataView(navController: NavController,liveDataViewModel: LiveDataViemodel = viewModel()  ){
     Box(
-       contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(55.dp)
+
 
     ){
         Text(
-            text= "0",
+            text= liveDataViewModel.contador.value.toString(),
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp
         )
         FloatingActionButton(
-            onClick = {},
+            onClick = {liveDataViewModel.add()},
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(15.dp)
