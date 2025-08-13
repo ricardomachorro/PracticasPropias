@@ -3,7 +3,11 @@ package com.example.viewmodelpracticaproyecto.viewModels
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
-class SavedStateHandlerViewModel( savedStateHandle: SavedStateHandle): ViewModel() {
+class SavedStateHandlerViewModel( val savedStateHandle: SavedStateHandle): ViewModel() {
 
-    val userId: String = savedStateHandle["userId"] ?: "unknown"
+    var userId: String
+        get()= savedStateHandle["userId"] ?: "unknown"
+        set(value) {
+            savedStateHandle["userId"] = value
+        }
 }
